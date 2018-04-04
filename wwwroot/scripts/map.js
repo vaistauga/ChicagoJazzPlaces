@@ -156,6 +156,11 @@ class Map {
         }
       ]
     });
+
+    //this.mapWidget.panTo(bounds.getCenter());
+    //right now I am panning to the center of bounds instead of framing them.
+    //Thismeans that it's possible that some of the markers will not be displayed.
+    //I will want the screen to zoom out if thats the case (but I dont want the screen to zoom in.)
   }
 
   /**
@@ -194,10 +199,6 @@ class Map {
       this._shownMarkers.push(marker);
       marker.setMap(this.mapWidget);
     });
-    this.mapWidget.panTo(bounds.getCenter());
-    //right now I am panning to the center of bounds instead of framing them.
-    //Thismeans that it's possible that some of the markers will not be displayed.
-    //I will want the screen to zoom out if thats the case (but I dont want the screen to zoom in.)
     return this._shownMarkers;
   }
 
