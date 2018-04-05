@@ -7,15 +7,18 @@ class Map {
     this.infoWindow;
     this.markerStyle_default = Map.makeMarkerIcon("0091ff");
     this.markerStyle_hoveredOver = Map.makeMarkerIcon("ffff24");
-    //Method binding to instance
+    this._defaultCenter = { lat: 41.878114, lng: -87.629798 };
+    this._defaultZoom = 12;
+    //Method binding to the instance
     this.hideMarkers = this.hideMarkers.bind(this);
     this.showMarkers = this.showMarkers.bind(this);
     this.createInfoWindow = this.createInfoWindow.bind(this);
+    this.resetView = this.resetView.bind(this);
 
     //Initialize map
     this.mapWidget = new google.maps.Map($("#googleMap")[0], {
-      center: { lat: 41.878114, lng: -87.629798 },
-      zoom: 12,
+      center: this._defaultCenter,
+      zoom: this._defaultZoom,
       mapTypeControl: false,
       styles: [
         {
@@ -156,11 +159,12 @@ class Map {
         }
       ]
     });
+  }
 
-    //this.mapWidget.panTo(bounds.getCenter());
-    //right now I am panning to the center of bounds instead of framing them.
-    //Thismeans that it's possible that some of the markers will not be displayed.
-    //I will want the screen to zoom out if thats the case (but I dont want the screen to zoom in.)
+  /**Reset the map's view (center and zoom level) */
+  resetView() {
+    this.mapWidget.setCenter(this._defaultCenter);
+    this.mapWidget.setZoom(this._defaultZoom);
   }
 
   /**
