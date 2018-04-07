@@ -21,35 +21,26 @@
 </head>
 
 <body>
-
-
-      <div class='gridContainer'>
-            <div class="header">
-                  <input type='text' placeholder='filter the markers' data-bind="textInput : currentFilter">
-                  <li>
-                        <a href="/directoryBrowser">Directory browser</a>
+      <div class="header">
+            <input type='text' placeholder='filter the markers' data-bind="textInput : currentFilter">
+            <!-- following is a clever way to draw hamburger using <li> elements -->
+            <a class="toggle-menu-button" href="#">
+                  <i></i>
+                  <i></i>
+                  <i></i>
+            </a>
+      </div>
+      <!-- following is the sidebar which shows all the locations -->
+      <nav class="menu-drawer">
+            <ul data-bind="foreach: markersDisplayed">
+                  <li class='placeCard'>
+                        <h3 data-bind="text: $data.title">Place name</h3>
                   </li>
-                  <a class="toggle-menu" href="#">
-                        <i></i>
-                        <i></i>
-                        <i></i>
-                  </a>
-            </div>
-            <div class="menu-drawer">
-                  <ul data-bind="foreach: markersDisplayed">
-                        <li class='placeCard'>
-                              <h3 data-bind="text: $data.title">Place name</h3>
-                        </li>
-                  </ul>
-            </div>
-            <div id='map'>
-
-            </div>
+            </ul>
+      </nav>
+      <div id='map'>
 
       </div>
-
-
-
 </body>
 
 </html>

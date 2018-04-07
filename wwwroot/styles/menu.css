@@ -1,4 +1,4 @@
-.toggle-menu {
+.toggle-menu-button {
   width: 50px;
   height: 50px;
   display: inline-block;
@@ -7,7 +7,7 @@
   z-index: 1000;
 }
 
-.toggle-menu i {
+.toggle-menu-button i {
   position: absolute;
   display: block;
   height: 2px;
@@ -18,29 +18,29 @@
   transition: all 0.3s;
 }
 
-.toggle-menu i:nth-child(1) {
+.toggle-menu-button i:nth-child(1) {
   top: 16px;
 }
 
-.toggle-menu i:nth-child(2) {
+.toggle-menu-button i:nth-child(2) {
   top: 24px;
 }
 
-.toggle-menu i:nth-child(3) {
+.toggle-menu-button i:nth-child(3) {
   top: 32px;
 }
 
-.toggle-menu.active i:nth-child(1) {
+.toggle-menu-button.active i:nth-child(1) {
   top: 25px;
   -webkit-transform: rotateZ(45deg);
   transform: rotateZ(45deg);
 }
 
-.toggle-menu.active i:nth-child(2) {
+.toggle-menu-button.active i:nth-child(2) {
   background: transparent;
 }
 
-.toggle-menu.active i:nth-child(3) {
+.toggle-menu-button.active i:nth-child(3) {
   top: 25px;
   -webkit-transform: rotateZ(-45deg);
   transform: rotateZ(-45deg);
