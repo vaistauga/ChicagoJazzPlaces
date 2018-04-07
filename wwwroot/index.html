@@ -22,18 +22,7 @@
 
 <body>
 
-      <div class="menu-drawer">
-            <ul>
 
-                  <li>
-                        <ul data-bind="foreach: markersDisplayed">
-                              <li class='placeCard'>
-                                    <h3 data-bind="text: $data.title">Place name</h3>
-                              </li>
-                        </ul>
-                  </li>
-            </ul>
-      </div>
       <div class='gridContainer'>
             <div class="header">
                   <input type='text' placeholder='filter the markers' data-bind="textInput : currentFilter">
@@ -45,6 +34,13 @@
                         <i></i>
                         <i></i>
                   </a>
+            </div>
+            <div class="menu-drawer">
+                  <ul data-bind="foreach: markersDisplayed">
+                        <li class='placeCard'>
+                              <h3 data-bind="text: $data.title">Place name</h3>
+                        </li>
+                  </ul>
             </div>
             <div id='map'>
 

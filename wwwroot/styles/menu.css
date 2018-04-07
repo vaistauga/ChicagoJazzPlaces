@@ -49,12 +49,12 @@
 .menu-drawer {
   width: 200px;
   background-color: #ccc;
-  min-height: 100%;
   position: absolute;
   right: -550px;
-  top: 0;
+  top: 50px;
+  bottom: 0;
   transition: right linear 0.2s;
-  padding: 50px;
+  padding: 15px;
   z-index: 2;
 }
 
