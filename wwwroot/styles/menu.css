@@ -1,18 +1,19 @@
 .toggle-menu-button {
-  width: 50px;
-  height: 50px;
-  display: inline-block;
+  min-width: 40px;
+  min-height: 40px;
+  display: flex;
   position: relative;
-  float: right;
   z-index: 1000;
+  justify-content: center;
+  margin: 5px;
 }
 
 .toggle-menu-button i {
   position: absolute;
   display: block;
   height: 2px;
-  background: #0094fc;
-  width: 30px;
+  background: whitesmoke;
+  width: 40px;
   left: 0px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;

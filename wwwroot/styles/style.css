@@ -20,7 +20,18 @@ body {
 
 .header {
   grid-area: header;
-  background: blue;
+  background: gray;
+  height: 50px;
+}
+
+.header {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.search {
+  flex-grow: 2;
+  margin: 5px;
 }
 
 #map {
