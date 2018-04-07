@@ -16,7 +16,7 @@ class Map {
     this.resetView = this.resetView.bind(this);
 
     //Initialize map
-    this.mapWidget = new google.maps.Map($("#googleMap")[0], {
+    this.mapWidget = new google.maps.Map($("#map")[0], {
       center: this._defaultCenter,
       zoom: this._defaultZoom,
       mapTypeControl: false,

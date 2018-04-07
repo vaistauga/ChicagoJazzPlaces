@@ -5,6 +5,7 @@
       <meta charset="utf-8">
       <title>My Chicago Places</title>
       <link rel='stylesheet' href='styles/style.css'>
+      <link rel='stylesheet' href='styles/menu.css'>
 
       <!-- load JSON data, this should move to a database later on -->
       <link id='placesJson' href='model/places.json'></link>
@@ -12,6 +13,7 @@
       <script defer='true' type='text/javascript' src='http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.4.2.js'></script>
       <script defer='true' src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.js"></script>
       <script defer='true' src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAQJ80m4OifN6YomapSnRbogXaSAAv348Q&v=3"></script>
+      <script defer='true' src='scripts/navigation.js'></script>
       <script defer='true' src='model/places.js'></script>
       <script defer='true' src='model/map.js'></script>
       <script defer='true' src='model/fourSquare.js'></script>
@@ -20,26 +22,37 @@
 
 <body>
 
-      <div class='gridContainer'>
-            <nav class="header">
-            </nav>
-            <div id='googleMap'></div>
+      <div class="menu-drawer">
+            <ul>
 
-            <nav class="mapControl">
-                  <a href="/directoryBrowser">Directory browser</a>
-                  <input type='text' placeholder='filter the markers' data-bind="textInput : currentFilter">
-                  <button data-bind="click: viewModel.map.resetView">Reset View</button>
-
-                  <ul data-bind="foreach: markersDisplayed">
-                        <li class='placeCard'>
-                              <h3 data-bind="text: $data.title">Place name</h3>
-                        </li>
-                  </ul>
-
-            </nav>
-
-            <footer class='footer'></footer>
+                  <li>
+                        <ul data-bind="foreach: markersDisplayed">
+                              <li class='placeCard'>
+                                    <h3 data-bind="text: $data.title">Place name</h3>
+                              </li>
+                        </ul>
+                  </li>
+            </ul>
       </div>
+      <div class='gridContainer'>
+            <div class="header">
+                  <input type='text' placeholder='filter the markers' data-bind="textInput : currentFilter">
+                  <li>
+                        <a href="/directoryBrowser">Directory browser</a>
+                  </li>
+                  <a class="toggle-menu" href="#">
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                  </a>
+            </div>
+            <div id='map'>
+
+            </div>
+
+      </div>
+
+
 
 </body>
 

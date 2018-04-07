@@ -1,4 +1,4 @@
-*{
+* {
   padding: 0;
   margin: 0;
 }
@@ -6,59 +6,46 @@
 html,
 body {
   height: 100%;
+  overflow: hidden;
 }
 
 .gridContainer {
   height: 100%;
   display: grid;
-  grid-template-rows: 50px auto 20px;
-  grid-template-columns: auto 30%;
+  grid-template-rows: 50px auto;
   grid-template-areas:
-    "header header"
-    "map    mapControl"
-    "footer footer";
-    z-index: 1; 
+    "header"
+    "map";
 }
 
 .header {
   grid-area: header;
   background: blue;
-  z-index: 2; 
 }
 
-#googleMap {
-  height: 100%; 
-  width: 100%; 
-  position:absolute; 
-  top: 0; 
-  left: 0; 
-}
-
-.mapControl {
-  grid-area: mapControl;
-  z-index: 1;
-  position: relative;
-  right: 50px;
-  padding: 20px;
-}
-
-.footer {
-  grid-area: footer;
-  background: blue;
-  z-index: 2;
-}
-
-.placesSearch {
+#map {
+  grid-area: map;
+  height: 100%;
   width: 100%;
 }
 
-.placeCard{
+#mapControl {
+  padding: 20px;
+  background: black;
+}
+
+#footer {
+  grid-area: footer;
+  background: blue;
+}
+
+.placeCard {
   list-style: none;
   background: gray;
   padding: 5px;
   margin: 15px 0 15px 0;
 }
 
-.placeCard:hover{
- background: lightgrey;
+.placeCard:hover {
+  background: lightgrey;
 }

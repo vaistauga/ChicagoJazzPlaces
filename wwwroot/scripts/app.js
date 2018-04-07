@@ -7,11 +7,12 @@ ko.applyBindings(viewModel);
 function constructViewModel() {
   let self = this;
   self.map = new Map();
+  self.toogleMenu = ko.observable(false);
+
   /**
    * Pulls data from the location database, creates marker for each location.
    * Each marker is set up with on click events and an info field from the database.
-   * In the future the places.js should be be included in a database
-   */
+   * In the future the places.js should be be included in a database*/
   self.markersFavorites = () => {
     var markers = [];
     places.forEach(place => {
