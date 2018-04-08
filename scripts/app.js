@@ -1,14 +1,30 @@
 "use strict";
+
+
+var map;
+
+
+
 /* global places */
 
-var viewModel = new constructViewModel();
-ko.applyBindings(viewModel);
+var map;
+console.log('app.js - Loaded')
 
-function constructViewModel() {
+function googleScriptFailedLoading(){
+    $("#map").html("Wops, Google map could not load");
+}
+
+function googleScriptLoaded(){
+  map = new Map();
+  var viewModel = new MainViewModel();
+  ko.applyBindings(viewModel);
+
+}
+
+function MainViewModel() {
   let self = this;
-  self.map = new Map();
-  self.toogleMenu = ko.observable(false);
 
+  self.toogleMenu = ko.observable(false);
   /**
    * Pulls data from the location database, creates marker for each location.
    * Each marker is set up with on click events and an info field from the database.
@@ -20,7 +36,7 @@ function constructViewModel() {
         place.position,
         null,
         place.title,
-        self.map.markerStyle_default,
+        map.markerStyle_default,
         place.fourSquareId
       );
       markers.push(marker);
@@ -48,7 +64,7 @@ function constructViewModel() {
 
   //When markersDisplayed changes, map should update the markers it's showing
   self.markersDisplayed.subscribe(() => {
-    self.map.showMarkers(self.markersDisplayed());
+    map.showMarkers(self.markersDisplayed());
   });
 
   self.currentFilter.valueHasMutated(); //Force the self.markersDisplayed to recalculate

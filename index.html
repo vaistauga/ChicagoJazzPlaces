@@ -4,21 +4,24 @@
 <head>
       <meta charset="utf-8">
       <title>My Chicago Places</title>
+
+      <!-- Style -->
       <link rel='stylesheet' href='styles/style.css'>
       <link rel='stylesheet' href='styles/menu.css'>
-
-      <!-- load JSON data, this should move to a database later on -->
-      <link id='placesJson' href='model/places.json'></link>
-
-      <script defer='true' type='text/javascript' src='http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.4.2.js'></script>
-      <script defer='true' src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.js"></script>
+      
+      <!-- Load frameworks and and scripts -->
+      <script defer='true' type='text/javascript' src='node_modules\jquery\dist\jquery.min.js'></script>
+      <script defer='true' src="node_modules\knockout\build\output\knockout-latest.js"></script>
+      <script defer='true' src='scripts/app.js'></script>
       <script defer='true' src='model/map.js'></script>
-      <script defer='true' src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAQJ80m4OifN6YomapSnRbogXaSAAv348Q&v=3&"
-            onerror="GMapScriptLoadFail()"></script>
       <script defer='true' src='scripts/navigation.js'></script>
       <script defer='true' src='model/places.js'></script>
+
+      
+      <!-- load external API -->
       <script defer='true' src='model/fourSquare.js'></script>
-      <script defer='true' src='scripts/app.js'></script>
+      <script defer='true' src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAQJ80m4OifN6YomapSnRbogXaSAAv348Q&v=3&callback=googleScriptLoaded"
+            onerror="googleScriptFailedLoading()"></script>
 </head>
 
 <body>

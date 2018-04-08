@@ -1,47 +1,46 @@
-.toggle-menu-button {
-  min-width: 40px;
-  min-height: 40px;
-  display: flex;
+.toggle-menu {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
   position: relative;
+  float: right;
   z-index: 1000;
-  justify-content: center;
-  margin: 5px;
 }
 
-.toggle-menu-button i {
+.toggle-menu i {
   position: absolute;
   display: block;
   height: 2px;
-  background: whitesmoke;
-  width: 40px;
+  background: #0094fc;
+  width: 30px;
   left: 0px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
 
-.toggle-menu-button i:nth-child(1) {
+.toggle-menu i:nth-child(1) {
   top: 16px;
 }
 
-.toggle-menu-button i:nth-child(2) {
+.toggle-menu i:nth-child(2) {
   top: 24px;
 }
 
-.toggle-menu-button i:nth-child(3) {
+.toggle-menu i:nth-child(3) {
   top: 32px;
 }
 
-.toggle-menu-button.active i:nth-child(1) {
+.toggle-menu.active i:nth-child(1) {
   top: 25px;
   -webkit-transform: rotateZ(45deg);
   transform: rotateZ(45deg);
 }
 
-.toggle-menu-button.active i:nth-child(2) {
+.toggle-menu.active i:nth-child(2) {
   background: transparent;
 }
 
-.toggle-menu-button.active i:nth-child(3) {
+.toggle-menu.active i:nth-child(3) {
   top: 25px;
   -webkit-transform: rotateZ(-45deg);
   transform: rotateZ(-45deg);
@@ -50,14 +49,13 @@
 .menu-drawer {
   width: 200px;
   background-color: #ccc;
+  min-height: 100%;
   position: absolute;
   right: -550px;
-  top: 50px;
-  bottom: 0;
+  top: 0;
   transition: right linear 0.2s;
-  padding: 15px;
+  padding: 50px;
   z-index: 2;
-  overflow-y: auto;
 }
 
 .open {

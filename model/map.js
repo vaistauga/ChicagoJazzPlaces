@@ -160,6 +160,7 @@ class Map {
       ]
     });
   }
+  
 
   /**Reset the map's view (center and zoom level) */
   resetView() {
@@ -268,8 +269,4 @@ class Map {
     });
     return marker;
   }
-}
-
-function GMapScriptLoadFail() {
-  $("#map").html("Wops, Google map could not load");
 }

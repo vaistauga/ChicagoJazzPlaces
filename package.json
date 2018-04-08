@@ -1,0 +1,15 @@
+{
+    "name": "chicagojazzplaces",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Vai",
+    "license": "ISC",
+    "dependencies": {
+        "jquery": "^3.3.1",
+        "knockout": "^3.4.2"
+    }
+}
