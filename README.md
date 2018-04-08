@@ -19,9 +19,15 @@ This project was build during my attendance to Full-Stack Nanodegree at Udacity.
 
 # Future Improvements
 
+### Implement backend
+
 This application has no backend. Most of the data shown is pull from either Google Maps or FourSquare. The only exception is the list of places which uses a simple JavaScript object to store the list. This 'database' needs to be replaced with an actuall database application.
 
-Once that is done, I would add the capability add Jazzy places.
+Additionaly, Foursquare expects to receive the queryies from the backend of the website, not the client. This should be fixed once the backend is implemnented.
+
+### Allow user to add new Jazzy places
+
+I don't want to be the only one who can add content to this site. Once the backend is established, I will implement a form to add new locations.
 
 # How view
 
