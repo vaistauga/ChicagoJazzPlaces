@@ -12,7 +12,8 @@
 
       <script defer='true' type='text/javascript' src='http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.4.2.js'></script>
       <script defer='true' src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.js"></script>
-      <script defer='true' src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAQJ80m4OifN6YomapSnRbogXaSAAv348Q&v=3"></script>
+      <script defer='true' src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAQJ80m4OifN6YomapSnRbogXaSAAv348Q&v=3&"
+            onerror="googleError()"></script>
       <script defer='true' src='scripts/navigation.js'></script>
       <script defer='true' src='model/places.js'></script>
       <script defer='true' src='model/map.js'></script>
@@ -24,23 +25,21 @@
       <div class="header">
             <input class="search" type='search' placeholder='filter' data-bind="textInput : currentFilter">
             <!-- following is a clever way to draw hamburger using <li> elements -->
-            <a class="toggle-menu-button" href="#">
+            <a class="toggle-menu-button active" href="#">
                   <i></i>
                   <i></i>
                   <i></i>
             </a>
       </div>
       <!-- following is the sidebar which shows all the locations -->
-      <nav class="menu-drawer">
+      <nav class="menu-drawer open">
             <ul data-bind="foreach: markersDisplayed">
                   <li class='placeCard'>
                         <h3 data-bind="text: $data.title">Place name</h3>
                   </li>
             </ul>
       </nav>
-      <div id='map'>
-
-      </div>
+      <div id='map'></div>
 </body>
 
 </html>
