@@ -14,6 +14,7 @@ class Map {
     this.showMarkers = this.showMarkers.bind(this);
     this.createInfoWindow = this.createInfoWindow.bind(this);
     this.resetView = this.resetView.bind(this);
+    this.resetView = this.toggleMarkerSelection.bind(this);
 
     //Initialize map
     this.mapWidget = new google.maps.Map($("#map")[0], {
@@ -176,6 +177,25 @@ class Map {
       marker.setMap(null);
     });
   }
+  
+
+  //Set's up sets markers 'selected' behavior - open info window and animates it.
+  toggleMarkerSelection(marker){
+    marker.setIcon(this.markerStyle_default);
+  if (marker.getAnimation() === null) {
+    marker.setAnimation(google.maps.Animation.BOUNCE);
+    marker.infoWindow = this.createInfoWindow(marker);
+    
+    google.maps.event.addListener(marker.infoWindow,'closeclick',()=>{
+      this.toggleMarkerSelection(marker)}
+   );
+   marker.infoWindow.open(this.mapWidget, marker);
+  } else {
+    marker.setAnimation(null);
+    marker.infoWindow.close();
+  }
+
+  }
 
   /**
    * Shows provided list of markers on this map.
@@ -190,11 +210,8 @@ class Map {
     var bounds = new google.maps.LatLngBounds();
     markers.forEach(marker => {
       bounds.extend(marker.position);
-      marker.addListener("click", () => {
-        marker.setIcon(this.markerStyle_default);
-        this.infoWindow = this.createInfoWindow(marker);
-        this.infoWindow.open(this.mapWidget, marker);
-      });
+      marker.addListener("click", ()=>{this.toggleMarkerSelection(marker)});
+      
       marker.addListener("mouseover", () => {
         marker.setIcon(this.markerStyle_hoveredOver);
       });
@@ -204,17 +221,17 @@ class Map {
       this._shownMarkers.push(marker);
       marker.setMap(this.mapWidget);
     });
+
     return this._shownMarkers;
   }
+
 
   /**
    * Populates this Map's infowindow with information provided in the marker.
    * @param {Object} marker - Marker
    */
   createInfoWindow(marker) {
-    if (this.infoWindow === undefined) {
-      this.infoWindow = new google.maps.InfoWindow({ content: null });
-    }
+    this.infoWindow = new google.maps.InfoWindow({ content: null });
     this.infoWindow.marker = marker;
     this.infoWindow.setContent(
       `<h1>${marker.title}</h1>
@@ -259,14 +276,22 @@ class Map {
       position: position,
       map: null, //seting this to null and map controls marker visability
       title: title,
-      icon: icon
+      icon: icon,
+      animation: google.maps.Animation.DROP
     });
+    //Populate marker information with data from foursquare
     getVenueInfo(fourSquareID, responseObject => {
       marker.description = responseObject.description;
       marker.photoUrl = `${responseObject.bestPhoto.prefix}width300${
         responseObject.bestPhoto.suffix
       }`;
     });
+
     return marker;
   }
+
+  toggleBounce() {
+    
+  }
+
 }

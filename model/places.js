@@ -16,35 +16,4 @@ var places = [
     title: "Museum of Science & Industry",
     position: { lat: 41.791605, lng: -87.5837228 },
     fourSquareId: "42eeb780f964a520b4261fe3"
-  },
-  {
-    title: "Museum of Science & Industry",
-    position: { lat: 41.791605, lng: -87.5837228 },
-    fourSquareId: "42eeb780f964a520b4261fe3"
-  },
-  {
-    title: "Museum of Science & Industry",
-    position: { lat: 41.791605, lng: -87.5837228 },
-    fourSquareId: "42eeb780f964a520b4261fe3"
-  },
-  {
-    title: "Museum of Science & Industry",
-    position: { lat: 41.791605, lng: -87.5837228 },
-    fourSquareId: "42eeb780f964a520b4261fe3"
-  },
-  {
-    title: "Museum of Science & Industry",
-    position: { lat: 41.791605, lng: -87.5837228 },
-    fourSquareId: "42eeb780f964a520b4261fe3"
-  },
-  {
-    title: "Museum of Science & Industry",
-    position: { lat: 41.791605, lng: -87.5837228 },
-    fourSquareId: "42eeb780f964a520b4261fe3"
-  },
-  {
-    title: "Museum of Science & Industry",
-    position: { lat: 41.791605, lng: -87.5837228 },
-    fourSquareId: "42eeb780f964a520b4261fe3"
-  }
-];
+  }]

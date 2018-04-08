@@ -1,10 +1,5 @@
 "use strict";
 
-
-var map;
-
-
-
 /* global places */
 
 var map;
@@ -60,6 +55,7 @@ function MainViewModel() {
           .includes(self.currentFilter().toLowerCase());
       });
     }
+
   });
 
   //When markersDisplayed changes, map should update the markers it's showing
@@ -67,5 +63,5 @@ function MainViewModel() {
     map.showMarkers(self.markersDisplayed());
   });
 
-  self.currentFilter.valueHasMutated(); //Force the self.markersDisplayed to recalculate
+  self.currentFilter.valueHasMutated(); //Force the self.markersDisplayed to recalculate when first loaded
 }

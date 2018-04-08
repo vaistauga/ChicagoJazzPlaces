@@ -20,7 +20,7 @@
       
       <!-- load external API -->
       <script defer='true' src='model/fourSquare.js'></script>
-      <script defer='true' src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAQJ80m4OifN6YomapSnRbogXaSAAv348Q&v=3&callback=googleScriptLoaded"
+      <script defer='true' src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQJ80m4OifN6YomapSnRbogXaSAAv348Q&v=3&callback=googleScriptLoaded"
             onerror="googleScriptFailedLoading()"></script>
 </head>
 
@@ -37,7 +37,7 @@
       <!-- following is the sidebar which shows all the locations -->
       <nav class="menu-drawer open">
             <ul data-bind="foreach: markersDisplayed">
-                  <li class='placeCard'>
+                  <li class='placeCard' data-bind="click: ()=>{this.map.toggleMarkerSelection($data)}">
                         <h3 data-bind="text: $data.title">Place name</h3>
                   </li>
             </ul>
