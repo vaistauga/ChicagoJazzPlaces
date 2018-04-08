@@ -269,3 +269,7 @@ class Map {
     return marker;
   }
 }
+
+function GMapScriptLoadFail() {
+  $("#map").html("Wops, Google map could not load");
+}
