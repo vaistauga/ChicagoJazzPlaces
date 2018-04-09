@@ -236,9 +236,7 @@ class Map {
     this.infoWindow.setContent(
       `<h1>${marker.title}</h1>
       <article>
-        Lat: ${marker.position} <br>      
-        Lng: ${marker.position}
-        <p>${marker.description}</p>
+        <p>${marker.description ? marker.description : ""}</p>
         <img src=${marker.photoUrl}>
       </article>`
     );
