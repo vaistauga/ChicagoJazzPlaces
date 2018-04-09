@@ -1,3 +1,6 @@
+"use strict";
+/* global  $ */
+/* eslint-disable no-unused-vars */
 $(function() {
   $(".toggle-menu-button").click(function() {
     $(this).toggleClass("active");

@@ -1,18 +1,17 @@
 "use strict";
-
-/* global places */
+/* global places, ko, $ */
+/* eslint-disable no-unused-vars */
 
 var map;
 
-function googleScriptFailedLoading(){
-    $("#map").html("Wops, Google map could not load");
+function googleScriptFailedLoading() {
+  $("#map").html("Wops, Google map could not load");
 }
 
-function googleScriptLoaded(){
+function googleScriptLoaded() {
   map = new Map();
   var viewModel = new MainViewModel();
   ko.applyBindings(viewModel);
-
 }
 
 function MainViewModel() {
@@ -54,7 +53,6 @@ function MainViewModel() {
           .includes(self.currentFilter().toLowerCase());
       });
     }
-
   });
 
   //When markersDisplayed changes, map should update the markers it's showing

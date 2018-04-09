@@ -1,5 +1,6 @@
 "use strict";
-
+/* global Map, google, getVenueInfo $ */
+/* eslint-disable no-unused-vars */
 class Map {
   constructor() {
     this.mapWidget;
@@ -161,7 +162,6 @@ class Map {
       ]
     });
   }
-  
 
   /**Reset the map's view (center and zoom level) */
   resetView() {
@@ -177,24 +177,22 @@ class Map {
       marker.setMap(null);
     });
   }
-  
 
   //Set's up sets markers 'selected' behavior - open info window and animates it.
-  toggleMarkerSelection(marker){
+  toggleMarkerSelection(marker) {
     marker.setIcon(this.markerStyle_default);
-  if (marker.getAnimation() === null) {
-    marker.setAnimation(google.maps.Animation.BOUNCE);
-    marker.infoWindow = this.createInfoWindow(marker);
-    
-    google.maps.event.addListener(marker.infoWindow,'closeclick',()=>{
-      this.toggleMarkerSelection(marker)}
-   );
-   marker.infoWindow.open(this.mapWidget, marker, );
-  } else {
-    marker.setAnimation(null);
-    marker.infoWindow.close();
-  }
+    if (marker.getAnimation() === null) {
+      marker.setAnimation(google.maps.Animation.BOUNCE);
+      marker.infoWindow = this.createInfoWindow(marker);
 
+      google.maps.event.addListener(marker.infoWindow, "closeclick", () => {
+        this.toggleMarkerSelection(marker);
+      });
+      marker.infoWindow.open(this.mapWidget, marker);
+    } else {
+      marker.setAnimation(null);
+      marker.infoWindow.close();
+    }
   }
 
   /**
@@ -210,8 +208,10 @@ class Map {
     var bounds = new google.maps.LatLngBounds();
     markers.forEach(marker => {
       bounds.extend(marker.position);
-      marker.addListener("click", ()=>{this.toggleMarkerSelection(marker)});
-      
+      marker.addListener("click", () => {
+        this.toggleMarkerSelection(marker);
+      });
+
       marker.addListener("mouseover", () => {
         marker.setIcon(this.markerStyle_hoveredOver);
       });
@@ -230,7 +230,10 @@ class Map {
    * @param {Object} marker - Marker
    */
   createInfoWindow(marker) {
-    this.infoWindow = new google.maps.InfoWindow({ content: null, maxWidth: 300 });
+    this.infoWindow = new google.maps.InfoWindow({
+      content: null,
+      maxWidth: 300
+    });
     this.infoWindow.marker = marker;
     this.infoWindow.setContent(
       `<h1>${marker.title}</h1>
@@ -287,8 +290,5 @@ class Map {
     return marker;
   }
 
-  toggleBounce() {
-    
-  }
-
+  toggleBounce() {}
 }
