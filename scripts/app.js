@@ -3,7 +3,6 @@
 /* global places */
 
 var map;
-console.log('app.js - Loaded')
 
 function googleScriptFailedLoading(){
     $("#map").html("Wops, Google map could not load");

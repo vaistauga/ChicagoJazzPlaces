@@ -189,7 +189,7 @@ class Map {
     google.maps.event.addListener(marker.infoWindow,'closeclick',()=>{
       this.toggleMarkerSelection(marker)}
    );
-   marker.infoWindow.open(this.mapWidget, marker);
+   marker.infoWindow.open(this.mapWidget, marker, );
   } else {
     marker.setAnimation(null);
     marker.infoWindow.close();
@@ -225,20 +225,17 @@ class Map {
     return this._shownMarkers;
   }
 
-
   /**
    * Populates this Map's infowindow with information provided in the marker.
    * @param {Object} marker - Marker
    */
   createInfoWindow(marker) {
-    this.infoWindow = new google.maps.InfoWindow({ content: null });
+    this.infoWindow = new google.maps.InfoWindow({ content: null, maxWidth: 300 });
     this.infoWindow.marker = marker;
     this.infoWindow.setContent(
       `<h1>${marker.title}</h1>
       <article>
-        Lat: ${marker.position} <br>      
-        Lng: ${marker.position}
-        <p>${marker.description}</p>
+        <p>${marker.description ? marker.description : ""}</p>
         <img src=${marker.photoUrl}>
       </article>`
     );
