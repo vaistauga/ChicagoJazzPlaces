@@ -1,12 +1,12 @@
 # Intro
 
-This project was build during my attendance to Full-Stack Nanodegree at Udacity. The goal of the project was to build a single page application which creates a new service by combining several third party API.
+This project was build during my Full-Stack Nanodegree attendance at Udacity. Project's goal is to build a single page application which creates a new service by combining several third-party API.
 
 # Features
 
-* Display a list of suggestions for you to hear some of the best Chicago jazz musicians
-* Displays best photo and description of each place (data pulled from FourSquare)
-* You may use the filter field to displayed locations to find a specific one faster
+* Display a list of suggestions for you to hear some of the best Chicago jazz musicians.
+* Displays best photo and description of each place (data pulled from FourSquare).
+* You may use the filter field to displayed locations to find a specific one faster.
 * The location marker bounces when you click on it - maximum interactivity! ;)
 
 # Technology
@@ -21,17 +21,17 @@ This project was build during my attendance to Full-Stack Nanodegree at Udacity.
 
 ### Implement backend
 
-This application has no backend. Most of the data shown is pull from either Google Maps or FourSquare. The only exception is the list of places which uses a simple JavaScript object to store the list. This 'database' needs to be replaced with an actuall database application.
+This application has no backend. Most of the data shown are pull from either Google Maps or FourSquare. The only exception is the list of jazz places which uses a simple JavaScript object to store the list. This 'database' needs to be replaced with an actual database application.
 
-Additionaly, Foursquare expects to receive the queryies from the backend of the website, not the client. This should be fixed once the backend is implemnented.
+Additionally, Foursquare expects it's client to be the server of the website, not the website client itself. This should be fixed once the backend is implemented.
 
-### Allow user to add new Jazzy places
+### Allow the user to add new Jazzy places
 
 I don't want to be the only one who can add content to this site. Once the backend is established, I will implement a form to add new locations.
 
 # How view
 
-Application uses NPM package manager. To view the application pull the files and initialize NPM. From there simply open index.html.
+The application uses NPM package manager. To preview the application pull the files and initialize NPM. From there simply open index.html.
 
 I hope you like it!
 
