@@ -15,8 +15,14 @@ function getVenueInfo(venueId, callBack) {
     url: `https://api.foursquare.com/v2/venues/${venueId}?client_id=${clientId}&client_secret=${clientSecret}&v=20180401`,
     method: "GET",
     headers: {},
-    dataType: "jsonp"
-  };
+    dataType: "jsonp",
+
+    timeout: 5000,
+    error: function(x, t, m) {
+      if(t==="timeout") {alert("Could not load data from FourSquare API")
+     }
+    }
+  }
 
   $.ajax(settings).done(response => {
     callBack(response.response.venue);
