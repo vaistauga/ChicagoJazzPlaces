@@ -19,10 +19,11 @@ function MainViewModel() {
 
   self.toogleMenu = ko.observable(false);
   /**
+   * Imeddiatly invoked function that which creates an array of markers.
    * Pulls data from the location database, creates marker for each location.
    * Each marker is set up with on click events and an info field from the database.
    * In the future the places.js should be be included in a database*/
-  self.markersFavorites = () => {
+  self.markersFavorites = (() => {
     var markers = [];
     places.forEach(place => {
       var marker = Map.createMarker(
@@ -35,7 +36,7 @@ function MainViewModel() {
       markers.push(marker);
     });
     return markers;
-  };
+  })();
 
   //text entered into a filter field
   self.currentFilter = ko.observable();
@@ -45,9 +46,9 @@ function MainViewModel() {
     //console.log(!self.currentFilter());
     if (!self.currentFilter()) {
       //console.log(self.markersFavorites());
-      return self.markersFavorites();
+      return self.markersFavorites;
     } else {
-      return ko.utils.arrayFilter(self.markersFavorites(), function(marker) {
+      return ko.utils.arrayFilter(self.markersFavorites, function(marker) {
         return marker.title
           .toLowerCase()
           .includes(self.currentFilter().toLowerCase());
