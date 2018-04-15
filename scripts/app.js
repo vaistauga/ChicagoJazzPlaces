@@ -28,7 +28,7 @@ function MainViewModel() {
     places.forEach(place => {
       var marker = Map.createMarker(
         place.position,
-        null,
+        map.mapWidget,
         place.title,
         map.markerStyle_default,
         place.fourSquareId

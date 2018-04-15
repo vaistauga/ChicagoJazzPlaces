@@ -174,7 +174,7 @@ class Map {
    */
   hideMarkers() {
     this._shownMarkers.forEach(marker => {
-      marker.setMap(null);
+      marker.setVisible(false);
     });
   }
 
@@ -219,7 +219,7 @@ class Map {
         marker.setIcon(this.markerStyle_default);
       });
       this._shownMarkers.push(marker);
-      marker.setMap(this.mapWidget);
+      marker.setVisible(true);
     });
 
     return this._shownMarkers;
@@ -274,7 +274,7 @@ class Map {
   static createMarker(position, map, title, icon, fourSquareID) {
     var marker = new google.maps.Marker({
       position: position,
-      map: null, //seting this to null and map controls marker visability
+      map: map, //seting this to null and map controls marker visability
       title: title,
       icon: icon,
       animation: google.maps.Animation.DROP
